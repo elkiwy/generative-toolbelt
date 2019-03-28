@@ -1,11 +1,34 @@
 (ns generative-toolbelt.point
-    "A set of function to create, manipulate, and draw Points.
-    Points are structured as maps like this: {:x 100 :y 100}"
+    "A set of function to create, manipulate, and draw Points and also Vector structures.
+    Points are structured as maps like this: {:x 100 :y 100}.
+    Vectors are strucutred as maps like this: {:len 100 :dir 60}"
     (:require [quil.core :as quil]
               [generative-toolbelt.utils :as gt-utils]))
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;Vector
+(defn make-vec
+    "Creates a Vector structure with length `l` and direction `d` in radians."
+    [l d] 
+    {:len l :dir d})
 
+
+(defn flip-dir
+    "Flip the direction of a by 180 degrees vector.
+     Returns a Vector structure."
+    [vect]
+    (make-vec (:len vect) (+ (:dir vect) 3.14159)))
+
+
+(defn tweak-len
+    "Changes the length of the vector multiplicating its length by `value`.
+     Returns a Vector structure."
+    [vect value]
+    (make-vec (* (:len vect) value) (:dir vect)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;Points
 (defn make-point
     "Creates a Point with absolutes coordinates.
      Returns a Point."
@@ -74,12 +97,12 @@
      Returns a Vector."
     [p]
     (make-vec 
-        (points-distance (make-point 0.0 0.0) p)
-        (points-angle (make-point 0.0 0.0) p)))
+        (point-distance (make-point 0.0 0.0) p)
+        (point-angle (make-point 0.0 0.0) p)))
 
 
 (defn draw-point
-    "Draws a Point to into the current graphics canvas."
+    "Draws a Point into the current graphics canvas."
     ([p]
         (quil/ellipse (:x p) (:y p) 3 3))
     ([p size]
@@ -93,8 +116,8 @@
      only, or `:hv` for both horizontal and vertical.
      Returns a sequence of Points." {:doc/format :markdown}
     [points mode]
-    (let [flipX (fn [p] (- (quil/w) (:x p)))
-          flipY (fn [p] (- (quil/h) (:y p)))
+    (let [flipX (fn [p] (- (gt-utils/w) (:x p)))
+          flipY (fn [p] (- (gt-utils/h) (:y p)))
           normX (fn [p] (:x p))
           normY (fn [p] (:y p))]
         (cond
@@ -122,8 +145,6 @@
                         ) points)
             :else
                 points)))
-
-
 
 
 

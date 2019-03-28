@@ -220,19 +220,19 @@
 
 
 (defn vector-to-seq
-    "**IMPROVE/CONTROL** Converts a Vector to a Sequence."
+    "**IMPROVE/CONTROL** Converts a Vector to a Sequence."{:doc/format :markdown}
     [v]
     (apply list v))
 
 
 (defn seq-to-vector
-    "**IMPROVE/CONTROL** Converts a Sequence to a Vector."
+    "**IMPROVE/CONTROL** Converts a Sequence to a Vector."{:doc/format :markdown}
     [s]
     (into [] s))
 
 
 (defn replace-nth-seq
-    "**IMPROVE/CONTROL** Replace the nth element from a sequence."
+    "**IMPROVE/CONTROL** Replace the nth element from a sequence."{:doc/format :markdown}
     [s ele ind]
     (let [v           (seq-to-vector s)
           replacedV   (assoc v ind ele)]
@@ -241,7 +241,7 @@
 
 (defn replace-pos-seq
     "**IMPROVE/CONTROL** Replace an element inside a sequence.
-     `position` is a 0-1 float that indicates the relative position of the element to replace."
+     `position` is a 0-1 float that indicates the relative position of the element to replace."{:doc/format :markdown}
     [s ele position]
     (let [ind         (int (* (count s) position))
           v           (seq-to-vector s)

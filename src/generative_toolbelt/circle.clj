@@ -10,7 +10,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;Circle
 (defn make-circle
-    "Creates a Circle with absolutes coordinates.
+    "Creates a Circle with a Point and an absolute value.
      Returns a Circle."
     [c r]
     {:c c :r r})

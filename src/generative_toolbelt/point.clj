@@ -151,7 +151,35 @@
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;Line
+(defn make-line
+    "Creates a Line with absolutes coordinates.
+     Returns a Line."
+    [a b]
+    {:a a :b b})
 
+
+(defn mkln
+    "Creates a Line with canvas-relative coordinates.
+     Returns a Line."
+    [ax  ay bx by]
+    {:a (mkpt ax ay) :b (mkpt bx by)})
+
+
+(defn reverse-line
+    "Reverse a Line swapping its Points.
+     Returns a Line."
+    [{:keys [a b]}]
+    (make-line b a))
+
+
+(defn draw-line
+    "Draws a Line into the current graphics canvas."
+    [l & [drawOptions]]
+    (when (not-nil? drawOptions)
+        (processDrawOptions drawOptions))
+    (quil/line (:x (:a l)) (:y (:a l)) (:x (:b l)) (:y (:b l))))
 
 
 

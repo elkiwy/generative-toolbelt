@@ -1,18 +1,18 @@
 # generative-toolbelt
 
-A Quil sketch designed to ... well, that part is up to you.
+Generative-toolbelt is a rich set of Clojure functions to ease out the process
+of drawing and sketching with Quil. These are the function that I
+personally use when I'm creating my artworks.
 
 ## Usage
 
-LightTable - open `core.clj` and press `Ctrl+Shift+Enter` to evaluate the file.
-
-Emacs - run cider, open `core.clj` and press `C-c C-k` to evaluate the file.
-
-REPL - run `(require 'generative-toolbelt.core)`.
+At the moment the project is still under testing and tweaking since I
+just made it splitting my original Quil sketch project into this
+separate standalone library. When I'll complete the migration and it
+will be stable I'll add it to Clojar and Leiningen.
 
 ## License
 
-Copyright © 2016 FIXME
+Copyright © 2019 Stefano Bertoli
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the GNU General Public License, version 3

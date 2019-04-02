@@ -53,16 +53,16 @@
      Returns a new Triangle."
     [tri vect]
     (make-triangle
-        (gt-point/move-point-by (:a tri) vect) 
-        (gt-point/move-point-by (:b tri) vect) 
-        (gt-point/move-point-by (:c tri) vect)))
+        (gt-point/point-move-by-vector (:a tri) vect) 
+        (gt-point/point-move-by-vector (:b tri) vect) 
+        (gt-point/point-move-by-vector (:c tri) vect)))
 
 (defn get-triangle-guide
     "Gets an alternative form of the Triangle structure that tells where the longest side is and what are its opposite sides."
     [tri]
-    (let [ab (gt-point/points-distance (:a tri) (:b tri))
-          bc (gt-point/points-distance (:b tri) (:c tri))
-          ca (gt-point/points-distance (:c tri) (:a tri))
+    (let [ab (gt-point/point-distance (:a tri) (:b tri))
+          bc (gt-point/point-distance (:b tri) (:c tri))
+          ca (gt-point/point-distance (:c tri) (:a tri))
           mx (max ab bc ca)]
     (cond
       (= ab mx)
@@ -78,7 +78,7 @@
      Returns a list of two Triangles."
     [tri]
     (let [guide    (get-triangle-guide tri)
-          midHypo  (gt-point/intermediate-point (:l1 guide) (:l2 guide) (gt-utils/r-gaussian 0.5 0.25))]
+          midHypo  (gt-point/point-between (:l1 guide) (:l2 guide) (gt-utils/r-gaussian 0.5 0.25))]
         (list 
             (make-triangle (:opposite guide) midHypo (:l1 guide))
             (make-triangle (:opposite guide) midHypo (:l2 guide)))))
@@ -94,7 +94,7 @@
     [t depth maxdepth oddsToSplit]
     (if (or (>= depth maxdepth) (gt-utils/odds oddsToSplit))
         (list t)
-        (map #(split-recursive % (inc depth) maxdepth) (split-triangle t))))
+        (map #(split-recursive % (inc depth) maxdepth oddsToSplit) (split-triangle t))))
 
 
 (defn triangle-subdivision

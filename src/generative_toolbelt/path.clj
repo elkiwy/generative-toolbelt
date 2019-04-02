@@ -23,8 +23,8 @@
             (quil/begin-shape)
             (doseq [point pointList]
                 (quil/vertex
-                    (min (- (w) 1) (max 0 (:x point)))
-                    (min (- (h) 1) (max 0 (:y point)))))
+                    (min (- (gt-utils/w) 1) (max 0 (:x point)))
+                    (min (- (gt-utils/h) 1) (max 0 (:y point)))))
             (quil/end-shape))
         (quil/tint 255 (nth (:fill drawOptions) 3))
         (quil/image gr 0 0)))
@@ -128,7 +128,7 @@
         (let [segmentationPoint   (if (number? chaikParam) chaikParam (gt-utils/r-normal (first chaikParam) (second chaikParam)))
               linesList           (partition 2 1 path)
               newLineList         (map #(chaikin-segment (first %) (second %) segmentationPoint) linesList)
-              curve               (chaikinSubdivision (flatten newLineList) (- iteration 1) chaikParam)]
+              curve               (chaikin-path (flatten newLineList) (- iteration 1) chaikParam)]
             ;Keep the first and last point where they are
             (gt-utils/replace-first-and-last curve (first path) (last path)))
         ;When i completed all the iteration I just return the point list

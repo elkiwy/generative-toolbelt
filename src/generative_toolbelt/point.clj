@@ -177,8 +177,8 @@
 (defn draw-line
     "Draws a Line into the current graphics canvas."
     [l & [drawOptions]]
-    (when (not-nil? drawOptions)
-        (processDrawOptions drawOptions))
+    (when (gt-utils/not-nil? drawOptions)
+        (gt-utils/process-draw-options drawOptions))
     (quil/line (:x (:a l)) (:y (:a l)) (:x (:b l)) (:y (:b l))))
 
 

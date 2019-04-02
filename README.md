@@ -6,13 +6,15 @@ personally use when I'm creating my artworks.
 
 ## Usage
 
-At the moment the project is still under testing and tweaking since I
-just made it splitting my original Quil sketch project into this
-separate standalone library. When I'll complete the migration and it
-will be stable I'll add it to Clojar and Leiningen.
+You can use the source as external files to import into your project,
+or you can simply add this:
+
+    [elkiwy/generative-toolbelt "0.1.1-SNAPSHOT"]
+
+to the dependencies in your `project.clj` file.
+
 
 ## License
 
 Copyright © 2019 Stefano Bertoli
-
 Distributed under the GNU General Public License, version 3

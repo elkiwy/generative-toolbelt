@@ -13,6 +13,7 @@
   :target-path "docs/"
 
   :codox   {:project {:name "generative-toolbelt", :version "0.1.1"}
+            :output-path "codox"
             :namespaces :all}
 
   :dependencies [[org.clojure/clojure "1.9.0"]

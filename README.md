@@ -13,6 +13,10 @@ or you can simply add this:
 
 to the dependencies in your `project.clj` file.
 
+## Documentation
+
+You can check the full automatically generated documentation with
+Codox at https://elkiwy.github.io/generative-toolbelt/
 
 ## License
 

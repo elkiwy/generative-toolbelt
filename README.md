@@ -46,10 +46,31 @@ or you can simply add this:
 
 to the dependencies in your `project.clj` file.
 
+
 ## Documentation
 
 You can check the full automatically generated documentation with
 Codox at https://elkiwy.github.io/generative-toolbelt/
+
+
+## Example
+
+Here are some example of the images that I generated through this
+library. If you want to see these images at high resolution with other
+images like these you can check out my website at https://elkiwyart.com
+
+
+![](https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/Color%20Mountains%20739953.png
+| width=200)
+
+![](https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/Deep%20Stars%20861183.png
+| width=200)
+
+![](https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/lines1.png
+| width=200)
+
+![](https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/nuggets2.png
+| width=200)
 
 ## License
 

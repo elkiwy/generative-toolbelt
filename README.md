@@ -60,17 +60,15 @@ library. If you want to see these images at high resolution with other
 images like these you can check out my website at https://elkiwyart.com
 
 
-![](https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/Color%20Mountains%20739953.png
-| width=200)
+<img align="left" src="https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/Color%20Mountains%20739953.png" width="400">
 
-![](https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/Deep%20Stars%20861183.png
-| width=200)
+<img align="left" src="https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/Deep%20Stars%20861183.png" width="400">
 
-![](https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/lines1.png
-| width=200)
+<img align="left" src="https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/lines1.png" width="400">
 
-![](https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/nuggets2.png
-| width=200)
+<img align="left" src="https://raw.githubusercontent.com/elkiwy/generative-toolbelt/master/examples/nuggets2.png" width="400">
+
+
 
 ## License
 

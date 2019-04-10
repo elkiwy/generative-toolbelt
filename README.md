@@ -73,4 +73,4 @@ images like these you can check out my website at https://elkiwyart.com
 ## License
 
 Copyright © 2019 Stefano Bertoli
-Distributed under the GNU General Public License, version 3
+Distributed under the MIT License

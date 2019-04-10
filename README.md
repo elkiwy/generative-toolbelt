@@ -1,7 +1,7 @@
 # generative-toolbelt
 
 Generative-toolbelt is a rich set of Clojure functions to ease out the process
-of drawing and sketching with Quil. These are the function that I
+of drawing and sketching with [Quil](https://github.com/quil/quil). These are the function that I
 personally use when I'm creating my artworks.
 
 ## Modules
@@ -14,19 +14,13 @@ structures representing that particular shape, plus some handy utility
 functions here and there.
 
 Currently the modules implemented are:
-
 * **Point.clj**: Point, Vector, and Line structures. 
-
 * **Circle.clj**: Circle and Ellipse structures.
-
 * **Path.clj**: Paths structures with conversion and smoothing functions.
-
 * **Triangle.clj**: Triangles structures with recursive triangle splitting
   and area triangulation functions.
-
 * **Utils.clj**: Canvas operations, draw options setters, random function wrappers, and
   sequences operations.
-
 * **Color.clj**: A draft of a Color structure to easily manage colors,
   still needs implementation.
 

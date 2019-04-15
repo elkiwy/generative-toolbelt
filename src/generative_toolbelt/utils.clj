@@ -57,9 +57,9 @@
         (let [r (/ (quil/random-gaussian) 2)]
             (cond
                 (< r -1)
-                    (-1)
+                    -1
                 (> r 1)
-                    (1)
+                    1
                 :else
                     r)))
     ([center]

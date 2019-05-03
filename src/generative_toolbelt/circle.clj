@@ -53,6 +53,22 @@
             (map #(point-on-circle circle %) angles))))
 
 
+(defn circle-move-by-vector
+    "TODO"
+    {:added "0.1.2"}
+    [circle vec]
+    (let [center    (:c circle)
+          newCenter (gt-point/point-move-by-vector center vec)]
+        (make-circle newCenter (:r circle))))
+
+
+(defn circle-scale-radius
+    "TODO"
+    {:added "0.1.2"}
+    [circle scale]
+    (make-circle (:c circle) (* (:r circle) scale)))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;Ellipse
 (defn make-ellipse 

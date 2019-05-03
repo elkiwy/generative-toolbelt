@@ -56,7 +56,7 @@
     "Calculate the angle between two Points.
      Returns a number."
     [a b]
-    (quil/atan2 (- (:y a) (:y b)) (- (:x a) (:x b))))
+    (quil/atan2 (- (- (:y b) (:y a))) (- (:x b) (:x a))))
 
 
 (defn point-between

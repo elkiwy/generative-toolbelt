@@ -1,4 +1,4 @@
-(defproject elkiwy/generative-toolbelt "0.1.1-SNAPSHOT"
+(defproject elkiwy/generative-toolbelt "0.1.2-SNAPSHOT"
     
   :description "A handy set of function to ease out the creative process of drawing with Quil."
 
@@ -10,9 +10,7 @@
   :plugins [[lein-codox "0.10.6"]]
 
 
-  :target-path "docs/"
-
-  :codox   {:project {:name "generative-toolbelt", :version "0.1.1"}
+  :codox   {:project {:name "generative-toolbelt", :version "0.1.2"}
             :output-path "codox"
             :namespaces :all}
 

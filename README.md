@@ -36,7 +36,7 @@ I'll try to implement that into the library!
 You can use the source as external files to import into your project,
 or you can simply add this:
 
-    [elkiwy/generative-toolbelt "0.1.1-SNAPSHOT"]
+    [elkiwy/generative-toolbelt "0.1.2-SNAPSHOT"]
 
 to the dependencies in your `project.clj` file.
 

@@ -27,6 +27,13 @@
     (apply comp (repeat n f)))
 
 
+(defn sign
+    [n]
+    (cond (nil? n) nil
+          (zero? n) 0
+          (pos? n) 1
+          :else -1))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;Random - Using Quil's random function as a base.
 (defn r-float

@@ -147,8 +147,34 @@
                 points)))
 
 
+(defn point-position-respect-line
+    [p l]
+    (let [aaa (* (- (:x (:b l)) (:x (:a l)))  (- (:y p) (:y (:a l))))
+          bbb (* (- (:y (:b l)) (:y (:a l)))  (- (:x p) (:x (:a l))))  
+          ccc (- aaa bbb)]
+        (gt-utils/sign ccc)))
 
 
+(defn shape-centroid
+    [points]
+    (let [sum-x (reduce + (map :x points))
+          sum-y (reduce + (map :y points))
+          length (count points)]
+        (make-point (/ sum-x length) (/ sum-y length))))
+
+(defn points-sort-clockwise-around-centroid
+    [points]
+    (when (> (count points) 0)
+        (let [cent (shape-centroid points)
+            ordered (sort #(> (point-angle cent %1) (point-angle cent %2)) points)]
+            ordered)))
+
+
+(defn points-move-by-vector
+    [shape v]
+    (if (<= (count shape) 2)
+        shape
+        (map #(point-move-by-vector % v) shape)))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -180,6 +206,56 @@
     (when (gt-utils/not-nil? drawOptions)
         (gt-utils/process-draw-options drawOptions))
     (quil/line (:x (:a l)) (:y (:a l)) (:x (:b l)) (:y (:b l))))
+
+
+
+
+(defn line-slope [{:keys [a b]}]
+    (if (zero? (- (:x a) (:x b)))
+        nil
+        (/ (- (:y a) (:y b)) (- (:x a) (:x b)))))
+ 
+(defn line-intersection [l1 l2]
+    (let [a1 (:a l1)
+          b1 (:b l1)
+          a2 (:a l2)
+          b2 (:b l2)
+          slope1 (line-slope l1)
+          slope2 (line-slope l2)]
+        (if (= slope1 slope2)
+            nil
+            (cond
+                (and (nil? slope1) (not (nil? slope2)))
+                    (make-point (:x a1)
+                        (+ (* (- (:x a1) (:x a2)) slope2) (:y a2)))
+                (and (not (nil? slope1)) (nil? slope2))
+                    (make-point (:x a2)
+                        (+ (* (- (:x a2) (:x a1)) slope1) (:y a1)))
+                :else
+                (let [x (/ (- (+ (- (* slope1 (:x a1))
+                                    (* slope2 (:x a2)))
+                                 (:y a2))
+                              (:y a1))
+                           (- slope1 slope2))]
+
+                    (make-point x (+ (* slope2 (- x (:x a2))) (:y a2))))))))
+
+
+
+(defn segment-intersection [l1 l2]
+    (if-let [crossing (line-intersection l1 l2)]
+        (let [minx-l1 (min (:x (:a l1)) (:x (:b l1)))
+              maxx-l1 (max (:x (:a l1)) (:x (:b l1)))
+              in-x-l1 (<= minx-l1 (:x crossing) maxx-l1)
+
+              miny-l1 (min (:y (:a l1)) (:y (:b l1)))
+              maxy-l1 (max (:y (:a l1)) (:y (:b l1)))
+              in-y-l1 (<= miny-l1 (:y crossing) maxy-l1)]
+            (if (and in-x-l1 in-y-l1)
+                crossing
+                nil))
+        nil))
+
 
 
 
